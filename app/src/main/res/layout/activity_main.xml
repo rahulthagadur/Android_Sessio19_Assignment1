@@ -8,6 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.thagadur.android_sessio19_assignment1.MainActivity">
+<!--Layout Containing TextView For Country Name, Status ,Min Temp , Max Temp and Description-->
 
     <TextView
         android:id="@+id/country_name"

@@ -2,20 +2,13 @@ package com.example.thagadur.android_sessio19_assignment1.network;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-
 import com.example.thagadur.android_sessio19_assignment1.utils.CommonUtilities;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
-
 import java.util.concurrent.TimeUnit;
-
-import okio.Buffer;
 
 /**
  * Created by Thagadur on 11/2/2017.
@@ -52,6 +45,7 @@ public class CallAddr extends AsyncTask<String, Void, String> {
         super.onPreExecute();
     }
 
+//    Loading the data from the Url in the background process .....
     @Override
     protected String doInBackground(String... params) {
         OkHttpClient client = new OkHttpClient();
@@ -81,22 +75,12 @@ public class CallAddr extends AsyncTask<String, Void, String> {
         return result;
     }
 
-
+// Binding the Loaded data via OnWebServiceResult Object
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         resultListener.getWebResponse(s, Servicetype);
     }
 
-    private static String bodyToString(final Request request) {
 
-        try {
-            final Request copy = request.newBuilder().build();
-            final Buffer buffer = new Buffer();
-            copy.body().writeTo(buffer);
-            return buffer.readUtf8();
-        } catch (Exception e) {
-            return "didn't work";
-        }
-    }
 }
