@@ -64,7 +64,6 @@ public class CallAddr extends AsyncTask<String, Void, String> {
                 .url(url)
                 //.post(body)
                 .build();
-        Log.e("CallAddr " + Servicetype, "url= " + url + " params= " + bodyToString(request));
         try {
             Response response = client.newCall(request).execute();
             if (!response.isSuccessful()) {
@@ -86,7 +85,6 @@ public class CallAddr extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        Log.e("CallAddr", "service_type= " + Servicetype + " result= " + s);
         resultListener.getWebResponse(s, Servicetype);
     }
 
@@ -98,7 +96,7 @@ public class CallAddr extends AsyncTask<String, Void, String> {
             copy.body().writeTo(buffer);
             return buffer.readUtf8();
         } catch (Exception e) {
-            return "did not work";
+            return "didn't work";
         }
     }
 }

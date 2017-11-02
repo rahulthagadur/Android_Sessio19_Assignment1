@@ -23,12 +23,17 @@ public class MainActivity extends AppCompatActivity implements OnWebServiceResul
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Initialisation Of Layout ID
+        initialiseLayoutWithId();
+        getTempInfo();
+    }
+    public void initialiseLayoutWithId(){
         country_name= (TextView)findViewById(R.id.country_name);
         min_temp= (TextView)findViewById(R.id.min_temp);
         max_temp= (TextView)findViewById(R.id.max_temp);
         status= (TextView)findViewById(R.id.status);
         description=(TextView)findViewById(R.id.description);
-        getTempInfo();
+
     }
 
     private void getTempInfo(){
